@@ -78,15 +78,17 @@ ax = measurements.plot.kde(label="kde")
 xlim = plt.xlim()
 plt.xlim((max(0.0, xlim[0]), xlim[1]))  # perf data is always positive
 (ymin, ymax) = ax.get_ylim()
-plt.vlines(s["ols_estimate"], ymin, ymax, color="red", label="ols estimate")
-plt.vlines(s["mean"], ymin, ymax, color="blue", label="mean")
+plt.vlines(s["ols_estimate"], ymin, ymax, color="blue", label="ols estimate")
+plt.vlines(s["mean"], ymin, ymax, color="red", label="mean")
 plt.legend()
 
 plt.savefig("docs/kde.png")
 plt.figure()
 
 for n in [10, 20, 100, 200, 500]:
-    measurements.plot.hist(bins=n, label=f"bins={n}")
+    ax = measurements.plot.hist(bins=n, label=f"bins={n}")
+    (ymin, ymax) = ax.get_ylim()
+    plt.vlines(s["mean"], ymin, ymax, color="red", label="mean")
     plt.legend()
     plt.savefig(f"docs/histogram-bin-{n}.png")
     plt.figure()
