@@ -85,7 +85,7 @@ plt.legend()
 plt.savefig("docs/kde.png")
 plt.figure()
 
-for n in [10, 20, 100, 200, 500]:
+for n in [10, 20, 100, 200]:
     ax = measurements.plot.hist(bins=n, label=f"bins={n}")
     (ymin, ymax) = ax.get_ylim()
     plt.vlines(s["mean"], ymin, ymax, color="red", label="mean")
