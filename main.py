@@ -85,6 +85,12 @@ plt.legend()
 plt.savefig("docs/kde.png")
 plt.figure()
 
+for n in [10, 20, 100, 200, 500]:
+    measurements.plot.hist(bins=n, label=f"bins={n}")
+    plt.legend()
+    plt.savefig(f"docs/histogram-bin-{n}.png")
+    plt.figure()
+
 X = np.arange(len(measurements))
 plt.scatter(X, measurements)
 
