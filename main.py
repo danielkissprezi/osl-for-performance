@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model
 from sklearn.metrics import r2_score
 
-# create random test data, these should be output by the benchmarks
 measurements = np.loadtxt("frame-times.txt")
 measurements = pd.Series(measurements)
 
